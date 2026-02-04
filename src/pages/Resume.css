@@ -1,0 +1,81 @@
+.resume {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.resume h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.resume-section {
+  margin-bottom: 3rem;
+}
+
+.resume-section h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 0.5rem;
+}
+
+.experience-item,
+.education-item {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.experience-item h3,
+.education-item h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.company,
+.school {
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.experience-item ul {
+  padding-left: 1.5rem;
+  color: #666;
+}
+
+.experience-item li {
+  margin-bottom: 0.5rem;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-category {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.skill-category h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.skill-category p {
+  color: #666;
+  margin: 0;
+}
+
+.resume-actions {
+  text-align: center;
+  margin-top: 3rem;
+}
