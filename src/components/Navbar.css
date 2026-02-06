@@ -1,6 +1,13 @@
 nav {
   padding-left: 1rem;
   padding-right: 1rem;
+
+  display: flex;
+  justify-content: center;
+}
+
+.home-link {
+  margin-right: calc(var(--spacing) * 4);
 }
 
 @media (max-width: 768px) {

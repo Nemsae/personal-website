@@ -31,7 +31,7 @@ const Home: React.FC = () => {
   ];
 
   const socialLinks: SocialLink[] = [
-    { icon: Github, label: 'GitHub', href: 'https://github.com/johnfrommartin' },
+    { icon: Github, label: 'GitHub', href: 'https://github.com/nemsae' },
     { icon: Linkedin, label: 'LinkedIn', href: '#' },
   ];
 
