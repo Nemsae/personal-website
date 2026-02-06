@@ -9,7 +9,7 @@ import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import './App.css';
 
-function App() {
+function App(): JSX.Element {
   return (
     <ThemeProvider defaultTheme="dark">
       <Router>

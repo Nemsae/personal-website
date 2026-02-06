@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Button } from '@/components/ui/button';
+import { Mail, Phone, MapPin, Github } from 'lucide-react';
 import {
   Card,
   CardContent,
@@ -19,6 +20,25 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
+interface ContactInfo {
+  icon: React.ComponentType<any>;
+  label: string;
+  value: string;
+  href: string;
+}
+
+interface SocialLink {
+  icon: React.ComponentType<any>;
+  label: string;
+  href: string;
+}
+
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 const formSchema = z.object({
   name: z
     .string()
@@ -33,8 +53,8 @@ const formSchema = z.object({
     .max(500, 'Message must be less than 500 characters.'),
 });
 
-const Contact = () => {
-  const form = useForm({
+const Contact: React.FC = () => {
+  const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
@@ -43,11 +63,22 @@ const Contact = () => {
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: FormData) => {
     console.log('Form submitted:', data);
     alert('Thank you for your message! I will get back to you soon.');
     form.reset();
   };
+
+  const contactInfo: ContactInfo[] = [
+    { icon: Mail, label: 'Email', value: 'jsson77@gmail.com', href: 'mailto:jsson77@gmail.com' },
+    { icon: Phone, label: 'Phone', value: '(650) 678-2956', href: 'tel:6506782956' },
+    { icon: MapPin, label: 'Location', value: 'Brooklyn, NY', href: '#' },
+  ];
+
+  const socialLinks: SocialLink[] = [
+    { icon: Github, label: 'GitHub', href: 'https://github.com/johnfrommartin' },
+    { icon: Github, label: 'Personal GitHub', href: 'https://github.com/Nemsae' },
+  ];
 
   return (
     <div className="container mx-auto px-6 py-20 max-w-4xl">
@@ -78,8 +109,8 @@ const Contact = () => {
                 <CardContent className="pt-6">
                   <div className="flex items-center space-x-3">
                     <div>
-                      <h3 className="font-semibold">Location</h3>
-                      <p className="text-muted-foreground">Brooklyn, NY</p>
+                      <h3 className="font-semibold">Phone</h3>
+                      <p className="text-muted-foreground">(650) 678-2956</p>
                     </div>
                   </div>
                 </CardContent>
@@ -89,8 +120,8 @@ const Contact = () => {
                 <CardContent className="pt-6">
                   <div className="flex items-center space-x-3">
                     <div>
-                      <h3 className="font-semibold">Phone</h3>
-                      <p className="text-muted-foreground">(650) 678-2956</p>
+                      <h3 className="font-semibold">Location</h3>
+                      <p className="text-muted-foreground">Brooklyn, NY</p>
                     </div>
                   </div>
                 </CardContent>
@@ -102,7 +133,7 @@ const Contact = () => {
                     <h3 className="font-semibold">GitHub</h3>
                     <div className="space-y-2">
                       <a 
-                        href="https://github.com/johnfrommartin?tab=overview&from=2022-12-01&to=2022-12-31" 
+                        href="https://github.com/johnfrommartin" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-foreground transition-colors block"

@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const FaviconUpdater = () => {
+const FaviconUpdater: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const updateFavicon = () => {
-      const path = location.pathname;
-      let faviconName = 'home'; // default
+    const updateFavicon = (): void => {
+      const path: string = location.pathname;
+      let faviconName: string = 'home'; // default
       
       if (path === '/about') {
         faviconName = 'about';
@@ -18,11 +18,11 @@ const FaviconUpdater = () => {
       }
       
       // Remove existing favicons
-      const existingFavicons = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
-      existingFavicons.forEach(favicon => favicon.remove());
+      const existingFavicons: NodeListOf<Element> = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
+      existingFavicons.forEach((favicon: Element) => favicon.remove());
       
       // Add new favicon
-      const link = document.createElement('link');
+      const link: HTMLLinkElement = document.createElement('link');
       link.rel = 'icon';
       link.href = `/favicons/${faviconName}.svg`;
       document.head.appendChild(link);

@@ -1,10 +1,15 @@
 import { Link, useLocation } from 'react-router-dom';
 import { ModeToggle } from './theme-toggle';
 
-const Navbar = () => {
+interface NavItem {
+  path: string;
+  label: string;
+}
+
+const Navbar: React.FC = () => {
   const location = useLocation();
   
-  const navItems = [
+  const navItems: NavItem[] = [
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
     { path: '/resume', label: 'Resume' },
@@ -19,7 +24,7 @@ const Navbar = () => {
             <span className="hidden font-bold sm:inline-block text-lg">John Son</span>
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
-            {navItems.map((item) => (
+            {navItems.map((item: NavItem) => (
               <Link
                 key={item.path}
                 to={item.path}

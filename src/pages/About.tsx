@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-const About = () => {
+const About: React.FC = () => {
   return (
     <div className="container mx-auto px-6 py-20 max-w-4xl">
       <div className="space-y-12">
